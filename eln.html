@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Hôtel El Shaddaï Monaye</title>
+    <link rel="stylesheet" href="eln1.css">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="overlay">
+            <h1>HÔTEL EL SHADDAÏ MONAYE</h1>
+            <p>Restaurant Gastronomique</p>
+        </div>
+    </header>
+
+    <main class="menu-container">
+        <div class="menu-section">
+            <button class="accordion">🥗 Entrées & Petit Déjeuner</button>
+            <div class="panel">
+                <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=600&auto=format&fit=crop&q=80" alt="Entrées">
+                <ul>
+                    <li>Salade à la Togolaise <span>1500frs</span></li>
+                    <li>Salade Niçoise <span>3000frs</span></li>
+                    <li>Petit déjeuner complet <span>2000frs</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <button class="accordion">🍔 Hamburger, Pizzas & Grillades</button>
+            <div class="panel">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=80" alt="Grillades">
+                <ul>
+                    <li>Hamburger + Frites <span>2500frs</span></li>
+                    <li>Pizza Royale <span>6000frs</span></li>
+                    <li>Pintade entière <span>10000frs</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="menu-section">
+    <button class="accordion">🍲 Plats Africains & Européens</button>
+    <div class="panel">
+        <!-- Nouvelle image avec l'assortiment complet -->
+        <img src="https://img.magnific.com/premium-photo/assorted-delicious-african-dishes-array-with-meat-beans-rice-vegetables-wooden-table_996993-8716.jpg" alt="Assortiment de Plats Africains et Européens">
+        <ul>
+            <li>Djinkoumé / Poulet <span>3000frs</span></li>
+            <li>Sauce Adémé + Crabe <span>5000frs</span></li>
+            <li>Spaghetti Bolognaise <span>3000frs</span></li>
+        </ul>
+    </div>
+</div>
+
+        <div class="menu-section">
+            <button class="accordion">🍹 Desserts & Cocktails</button>
+            <div class="panel">
+                <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=600&auto=format&fit=crop&q=80" alt="Boissons">
+                <ul>
+                    <li>Crêpes aux chocolats <span>2000frs</span></li>
+                    <li>Jus Naturels (Bissap, Citron...) <span>1000frs</span></li>
+                    <li>Cocktails alcoolisés <span>2500frs</span></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <p><marquee><mark><em>Manger fait du Bien !</em> </mark></marquee></p>
+
+    <footer>
+        <p>&copy; Hôtel El Shaddaï Monaye - Bon Appétit</p>
+    </footer>
+    <style>
+:root {
+    --primary: #c0392b; /* Rouge du menu */
+    --gold: #d4af37;
+    --dark: #2c3e50;
+    --light: #f4f4f4;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* Courbe d'animation fluide */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--light);
+    color: var(--dark);
+    /* Cache le contenu initialement pour l'animation d'entrée */
+    opacity: 0; 
+    animation: pageFadeIn 1s var(--ease-out) forwards;
+}
+
+/* --- Animations Clés (Keyframes) --- */
+
+@keyframes pageFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes titleSlideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sectionSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------------------------- */
+
+.hero {
+    /* Utilisation de l'image de couverture comme fond */
+    background: url('image_0.png') center/cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    width: 100%;
+    z-index: 1;
+}
+
+.hero h1 {
+    animation: titleSlideDown 0.8s 0.3s var(--ease-out) both;
+}
+
+.hero p {
+    animation: titleSlideDown 0.8s 0.5s var(--ease-out) both;
+}
+
+.menu-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.menu-section {
+    opacity: 0;
+    /* Animation d'entrée pour chaque section */
+    animation: sectionSlideUp 0.6s var(--ease-out) forwards;
+}
+
+/* Délai d'animation pour chaque section pour un effet de cascade */
+.menu-section:nth-child(1) { animation-delay: 0.2s; }
+.menu-section:nth-child(2) { animation-delay: 0.4s; }
+.menu-section:nth-child(3) { animation-delay: 0.6s; }
+.menu-section:nth-child(4) { animation-delay: 0.8s; }
+
+/* --- Accordéon Animé --- */
+.accordion {
+    background-color: white;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    /* Transition fluide pour le hover */
+    transition: all 0.3s ease; 
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+/* Effet de survol sur les boutons */
+.accordion:hover {
+    background-color: #eee;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Icône "plus" animée */
+.accordion::after {
+    content: '\002B'; /* Signe plus (+) */
+    color: var(--gold);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.4s ease;
+}
+
+.active::after {
+    transform: rotate(45deg); /* Tourne pour former un "x" */
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    /* Transition fluide pour l'ouverture */
+    transition: max-height 0.4s var(--ease-out), padding 0.4s ease;
+    border-radius: 0 0 5px 5px;
+}
+
+.panel.open {
+    padding: 15px 18px;
+}
+
+.panel img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s 0.2s var(--ease-out);
+}
+
+/* Anime l'image quand le panneau s'ouvre */
+.active + .panel img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+ul {
+    list-style: none;
+    padding: 15px 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+    transition: background-color 0.2s ease;
+}
+
+/* Animation au survol d'un plat */
+ul li:hover {
+    background-color: rgba(212, 175, 55, 0.1); /* Léger fond doré */
+}
+
+ul li span {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    animation: pageFadeIn 1s 1s ease forwards;
+} </style>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+    
+    // Gestion de l'ouverture des sections du menu (Accordéon)
+    const accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach(button => {
+        button.addEventListener('click', function() {
+            
+            // Toggle la classe active sur le bouton
+            this.classList.toggle('active');
+
+            const panel = this.nextElementSibling;
+            
+            // Ferme les autres panneaux ouverts (effet accordéon unique)
+            accordions.forEach(otherButton => {
+                if (otherButton !== this && otherButton.classList.contains('active')) {
+                    otherButton.classList.remove('active');
+                    otherButton.nextElementSibling.style.maxHeight = null;
+                    otherButton.nextElementSibling.classList.remove('open');
+                }
+            });
+
+            // Ouvre/Ferme le panneau cliqué
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                panel.classList.remove('open');
+            } else {
+                // Définit la hauteur max sur la hauteur réelle du contenu
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add('open');
+            }
+        });
+    });
+
+    // Optionnel : Un léger effet parallaxe sur l'en-tête au défilement
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        let scrollPosition = window.pageYOffset;
+        // Bouge le fond à 20% de la vitesse du défilement
+        hero.style.backgroundPositionY = scrollPosition * 0.2 + 'px'; 
+    });
+});
+</script>
+</body>
+</html>
